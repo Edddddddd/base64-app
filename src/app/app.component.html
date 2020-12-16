@@ -1,11 +1,45 @@
-<form class="example-form">
-  <div class="mat-app-background basic-container">
-    <p>
-      <mat-form-field class="example-full-width">
-        <mat-label>Address</mat-label>
-        <textarea matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
-      </mat-form-field>
-    </p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <mat-card class="example-card mt-5">
+        <mat-card-header>
+          <mat-card-title>Convertidor de Base 64</mat-card-title>
+          <mat-card-subtitle>Convertidor de Texto</mat-card-subtitle>
+        </mat-card-header>
+        <mat-form-field class="example-full-width">
+          <mat-label>Texto a Convertir</mat-label>
+          <textarea matInput placeholder="Input Text" rows="{{rows}}" [(ngModel)]="inputBase64"></textarea>
+        </mat-form-field>
+        <mat-card-actions>
+          <button mat-stroked-button [cdkCopyToClipboard]="inputBase64">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>								
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <div class="mt-3 mb-3">
+        <button style="margin-right: 10px;" mat-flat-button color="primary" class="ml-2 mr-2" (click)="convertirToBase64()">Decode</button>
+        <button style="margin-right: 10px;" mat-flat-button color="accent" class="ml-2 mr-2" (click)="convertirToText()">Encode</button>
+        <button style="margin-right: 10px;" mat-flat-button color="warn" class="ml-2 mr-2" (click)="descargarFile()">Descargar</button>
+        <button mat-flat-button color="primary" class="ml-2 mr-2" (click)="clear()">Limpiar</button>
+      </div>
+    </div>
+    <div class="col-12">
+      <mat-card class="example-card mt-5">
+        <mat-card-header>
+          <mat-card-title>Resultado Base 64</mat-card-title>
+          <mat-card-subtitle>Convertidor de Texto</mat-card-subtitle>
+        </mat-card-header>
+        <mat-form-field class="example-full-width">
+          <mat-label>Resultado</mat-label>
+          <textarea matInput placeholder="Output Text" rows="{{rows}}" [(ngModel)]="outputText"></textarea>
+        </mat-form-field>
+        <mat-card-actions>
+          <button mat-stroked-button [cdkCopyToClipboard]="outputText">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>								
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>  
-</form>
+</div>
 
