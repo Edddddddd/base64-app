@@ -10,6 +10,9 @@ export class AppComponent {
   inputBase64 = '';
   outputText = '';
   rows = 10;
+  seasons: string[] = ['.bin', '.pdf', '.png', '.jpg'];
+  formato = "";
+
   convertirToBase64(): void {
     this.outputText = '';
     this.outputText = btoa(this.inputBase64)
@@ -31,10 +34,16 @@ export class AppComponent {
   descargarFile(): void {
     // The Base64 string of a simple PDF file
       var b64 = this.inputBase64;
+      var d = new Date();
 
       var link = document.createElement('a');
       link.innerHTML = 'Download PDF file';
-      link.download = 'file.bin';
+
+      if (this.formato === "") {
+       this.formato = ".bin";
+      }
+
+      link.download = 'file_'+d.getTime()+this.formato;
       link.href = 'data:application/octet-stream;base64,' + b64;
       document.body.appendChild(link);
       link.click();
